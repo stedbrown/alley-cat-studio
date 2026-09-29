@@ -3,9 +3,9 @@
 // Adapted from React Bits by David Haz. See licenses/react-bits-LICENSE.md.
 import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+
+
 
 export default function SplitText({ lines, label }: { lines: { text: string; accent?: string }[]; label: string }) {
   const ref = useRef<HTMLHeadingElement>(null);
@@ -16,11 +16,21 @@ export default function SplitText({ lines, label }: { lines: { text: string; acc
       if (disposed) return;
       media.add('(prefers-reduced-motion: no-preference)', () => {
         const element = ref.current!;
-        gsap.from(element.querySelectorAll('.rb-split-char'), {
-          yPercent: 65, rotation: 4, opacity: 0, duration: .65,
-          stagger: .025, ease: 'power3.out',
-          scrollTrigger: { trigger: element, start: 'top 88%', once: true, fastScrollEnd: true },
-        });
+        const animation = gsap.fromTo(element.querySelectorAll('.rb-split-char'),
+          { yPercent: 65, rotation: 4, opacity: 0 },
+          { yPercent: 0, rotation: 0, opacity: 1, duration: .65,
+            stagger: { amount: .45 }, ease: 'power3.out', paused: true });
+        // Observe the actual heading, independent of preceding pinned films.
+        // Replay on re-entry so a fast swipe or an anchor jump cannot consume it early.
+        const observer = new IntersectionObserver(entries => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) animation.play();
+            else animation.pause(0);
+          }
+        }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+        observer.observe(element);
+        return () => { observer.disconnect(); animation.kill(); };
+
       });
     });
     return () => { disposed = true; media.revert(); };

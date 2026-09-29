@@ -3,7 +3,7 @@ import Arrow from './Arrow';
 import { useRef, useState } from 'react';
 import Magnet from './react-bits/Magnet';
 
-const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || '';
+const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'stefanovananti@icloud.com';
 export default function ContactBrief() {
   const dialog = useRef<HTMLDialogElement>(null);
   const [status, setStatus] = useState('');
@@ -23,6 +23,10 @@ export default function ContactBrief() {
   }
   return <>
     <Magnet><button className="brief-button" onClick={() => { setStatus(''); dialog.current?.showModal(); }}>START A BRIEF <Arrow /></button></Magnet>
+    <div className="direct-contacts">
+      <a href="mailto:stefanovananti@icloud.com"><span className="utility">DROP US A LINE</span><span>stefanovananti@icloud.com</span><Arrow /></a>
+      <a href="https://wa.me/41768057376" target="_blank" rel="noopener noreferrer"><span className="utility">WHATSAPP / SAY MEOW</span><span>+41 76 805 73 76</span><Arrow /></a>
+    </div>
     <div className="contact-meta utility"><span>DESIGN / DEVELOPMENT / MOTION</span><span>HALF-BAKED IDEAS WELCOME.</span></div>
     <dialog ref={dialog} className="brief-dialog" onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }} aria-labelledby="brief-title">
       <div className="dialog-header utility"><span>YOUR NEXT GOOD IDEA STARTS HERE</span><button aria-label="Close project brief" onClick={() => dialog.current?.close()}>×</button></div>
