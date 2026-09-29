@@ -1,4 +1,5 @@
 'use client';
+import Arrow from './Arrow';
 import { useRef, useState } from 'react';
 import Magnet from './react-bits/Magnet';
 
@@ -21,7 +22,7 @@ export default function ContactBrief() {
     }
   }
   return <>
-    <Magnet><button className="brief-button" onClick={() => { setStatus(''); dialog.current?.showModal(); }}>START A BRIEF <span aria-hidden="true">↗</span></button></Magnet>
+    <Magnet><button className="brief-button" onClick={() => { setStatus(''); dialog.current?.showModal(); }}>START A BRIEF <Arrow /></button></Magnet>
     <div className="contact-meta utility"><span>DESIGN / DEVELOPMENT / MOTION</span><span>HALF-BAKED IDEAS WELCOME.</span></div>
     <dialog ref={dialog} className="brief-dialog" onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }} aria-labelledby="brief-title">
       <div className="dialog-header utility"><span>YOUR NEXT GOOD IDEA STARTS HERE</span><button aria-label="Close project brief" onClick={() => dialog.current?.close()}>×</button></div>

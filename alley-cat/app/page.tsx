@@ -1,3 +1,5 @@
+import Arrow from '@/components/Arrow';
+import StackTicker from '@/components/StackTicker';
 import BrandLogo from '@/components/BrandLogo';
 import HeroTitle from '@/components/HeroTitle';
 import Motion from '@/components/Motion';
@@ -23,11 +25,9 @@ export default function Home() {
         <div className="hero-composition">
           <div className="hero-type"><HeroTitle /><div className="hero-caption" data-reveal><BrandLogo /><p>Cinematic websites. Tempting online stores.<br/>Custom software that does the heavy lifting.</p></div></div>
         </div>
-        <div className="hero-footer utility"><span>LOOK SHARP. WORK SMART. LAND ON YOUR FEET.</span><a href="#commerce">SEE WHAT WE BUILD <span aria-hidden="true">↘</span></a></div>
+        <div className="hero-footer utility"><span>LOOK SHARP. WORK SMART. LAND ON YOUR FEET.</span><a href="#commerce">SEE WHAT WE BUILD <Arrow down /></a></div>
       </section>
-      <div className="ticker tech-ticker" role="region" aria-label="Our toolkit: ChatGPT Astra, Vercel, GitHub, React, Next.js, TypeScript, GSAP and Google Flow">
-        <div className="tech-ticker-track" aria-hidden="true">{[0, 1].map(copy => <div className="tech-ticker-group" key={copy}>{['CHATGPT / ASTRA', 'VERCEL', 'GITHUB', 'REACT', 'NEXT.JS', 'TYPESCRIPT', 'GSAP', 'GOOGLE FLOW'].map(technology => <span className="tech-ticker-item" key={technology}>{technology}<i className="ticker-divider" /></span>)}</div>)}</div>
-      </div>
+      <StackTicker />
       <CinematicSection />
       <section className="studio section-pad" id="about">
         <div className="section-heading utility"><span>02 / THE METHOD IN THE MISCHIEF</span><span>CURIOUS MINDS. SHARP EXECUTION.</span></div>
@@ -43,7 +43,7 @@ export default function Home() {
           <article data-reveal><span className="utility">02 / BUSINESS SOFTWARE</span><h3>LESS FRICTION.<br/>MORE FLOW.</h3><p>Connect the tools, tame the admin and give repetitive tasks somewhere else to live.</p></article>
           <article data-reveal><span className="utility">03 / INTERFACE & MOTION</span><h3>EVERY MOVE.<br/>A PURPOSE.</h3><p>Motion that guides, feedback that helps, and interfaces with a personality. No circus required.</p></article>
         </div>
-        <a className="text-link" href="#contact">PUT YOUR IDEA TO WORK <span aria-hidden="true">↗</span></a>
+        <a className="text-link" href="#contact">PUT YOUR IDEA TO WORK <Arrow /></a>
       </section>
       <section className="philosophy section-pad"><div className="section-heading utility"><span>05 / OUR NATURAL INSTINCT</span><span>NICE TO LOOK AT. BETTER TO USE.</span></div><ScrollReveal lines={['ALL BITE.', 'NO DEAD', 'CLICKS.']} /><p>A good website earns the next tap.<br/>We make every detail work for it.</p></section>
       <section className="contact section-pad" id="contact"><div className="section-heading utility"><span>06 / GOT A WILD IDEA?</span><span>LET’S GET OUR PAWS ON IT.</span></div><SplitText label="LET’S MAKE SOME NOISE." lines={[{ text: 'LET’S MAKE' }, { text: 'SOME ', accent: 'NOISE.' }]} /><p>A new store, a better website, a tool that saves your sanity. Let’s give it a life of its own.</p><ContactBrief /></section>

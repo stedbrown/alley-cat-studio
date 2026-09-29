@@ -27,13 +27,15 @@ export default function CinematicSection() {
         }
       }, { rootMargin: '300px' });
       visibility?.observe(section);
-      const timeline = reduced ? null : gsap.timeline({ scrollTrigger: {
+      const playhead = { progress: 0 };
+      const timeline = reduced ? null : gsap.timeline({ onUpdate: () => renderer.seek(playhead.progress), scrollTrigger: {
         trigger: section, start: 'top top', end: mobile ? '+=110%' : '+=220%', pin: true, scrub: .35, anticipatePin: 1, refreshPriority: 10,
         onUpdate: self => {
-          renderer.seek(self.progress);
+          
           if (counter.current) counter.current.textContent = String(Math.round(self.progress * 100)).padStart(3, '0');
         },
       } });
+      timeline?.to(playhead, { progress: 1, duration: 1, ease: 'none' }, 0);
       timeline?.to(section.querySelector('.scene-intro'), { opacity: 0, y: -35, duration: .25 }, 0)
         .fromTo(section.querySelector('.scene-outro'), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: .22 }, .78);
       return () => { visibility?.disconnect(); timeline?.scrollTrigger?.kill(); timeline?.kill(); renderer.destroy(); };

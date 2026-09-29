@@ -10,3 +10,4 @@ alley-cat/.sites-runtime
 alley-cat/reference.jpg
 alley-cat/public/can-preview.png
 alley-cat/*.tsbuildinfo
+!alley-cat/public/stack/*.png

@@ -36,12 +36,12 @@ export default function LogoSequence() {
           { y: 0, opacity: 1, duration: .8, ease: 'power2.out' }, .15)
         .fromTo(root.current!.querySelector('.method-aside'),
           { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: .4 }, .55);
-      const timeline = reduced ? null : gsap.timeline({ scrollTrigger: {
+      const playhead = { progress: 0 };
+      const timeline = reduced ? null : gsap.timeline({ onUpdate: () => renderer.seek(playhead.progress), scrollTrigger: {
         trigger: root.current, start: 'top 10%', end: mobile ? '+=50%' : '+=110%', pin: true, scrub: .45, anticipatePin: 1, refreshPriority: 5,
-        onUpdate: self => {
-          renderer.seek(self.progress);
-        },
+        
       } });
+      timeline?.to(playhead, { progress: 1, duration: 1, ease: 'none' }, 0);
       timeline?.fromTo(root.current!.querySelector('.logo-canvas-stage'), { scale: .92, rotate: -3 }, { scale: 1.04, rotate: 0, duration: 1, ease: 'none' }, 0)
         .fromTo(root.current!.querySelector('.method-title'), { y: 18 }, { y: -12, duration: 1, ease: 'none' }, 0)
         .fromTo(root.current!.querySelector('.method-progress'), { scaleX: 0 }, { scaleX: 1, duration: 1, ease: 'none' }, 0);

@@ -10,10 +10,23 @@ export class FrameSequence {
   constructor(private directory: string, readonly count: number, private limit: number, private ready: (frame: number) => void) {}
   start() { this.seek(this.target); }
   get(index: number) { return this.cache.get(index); }
+  nearest(index: number, previous: number) {
+    let best = -1;
+    let distance = Infinity;
+    this.cache.forEach((_, key) => {
+      // While decoding, only advance toward the target; never jump backwards.
+      if (previous >= 0 && (index >= previous ? key < previous || key > index : key > previous || key < index)) return;
+      const delta = Math.abs(key - index);
+      if (delta < distance) { best = key; distance = delta; }
+    });
+    return best;
+  }
   seek(index: number) {
+    const direction = index >= this.target ? 1 : -1;
     this.target = Math.max(0, Math.min(this.count - 1, index));
     const near = [this.target];
-    for (let offset = 1; offset <= 7; offset++) near.push(this.target + offset, this.target - offset);
+    for (let offset = 1; offset <= 7; offset++) near.push(this.target + offset * direction);
+    for (let offset = 1; offset <= 3; offset++) near.push(this.target - offset * direction);
     this.queue = [...new Set(near)].filter(i => i >= 0 && i < this.count && !this.cache.has(i) && !this.pending.has(i) && !this.failed.has(i));
     this.pump();
   }
