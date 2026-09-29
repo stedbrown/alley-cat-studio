@@ -41,15 +41,15 @@ export default function CinematicSection() {
     return () => media.revert();
   }, []);
   return <section className="cinematic" ref={root} aria-labelledby="cinematic-title" id="film">
-    <div className="scene-top utility"><span>01 / A LITTLE SOMETHING UP OUR SLEEVE</span><span>SCROLL TO REVEAL</span></div>
+    <div className="scene-top utility"><span>01 / NINE LIVES. PLENTY OF TRICKS.</span><span>MEET THE STACK</span></div>
     <div className="canvas-stage">
       {/* The poster remains underneath until the requested frame is decoded. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img className="scene-poster" src="/cinematic/frames/frame-0001.webp" alt="A grinning cartoon cat wearing a trench coat in a colorful graffiti alley" width="1280" height="720" />
       <canvas ref={canvasRef} aria-label="Scroll-controlled animation of the cartoon cat opening its coat to reveal exaggerated cartoon props" role="img" />
-      <h2 id="cinematic-title" className="scene-intro">LOOKS GOOD.<br/><em>MOVES BETTER.</em></h2>
-      <p className="scene-outro">NOT YOUR<br/><em>USUAL SUSPECT.</em></p>
+      <h2 id="cinematic-title" className="scene-intro">NINE LIVES.<br/><em>ONE BIG STACK.</em></h2>
+      <p className="scene-outro">ALL THIS TECH.<br/><em>STILL NO THUMBS.</em></p>
     </div>
-    <div className="scene-bottom utility"><span>ALL CHARACTER. NO COMPROMISE.</span><span><span ref={counter}>000</span> / 100</span></div>
+    <div className="scene-bottom utility"><span>AI, CODE & MOTION. MORE TOOLS THAN POCKETS.</span><span><span ref={counter}>000</span> / 100</span></div>
   </section>;
 }

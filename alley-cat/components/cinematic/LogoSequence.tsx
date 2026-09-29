@@ -24,6 +24,18 @@ export default function LogoSequence() {
         if (entries.some(entry => entry.isIntersecting)) { renderer.preload(); visibility?.disconnect(); }
       }, { rootMargin: '350px' });
       visibility?.observe(root.current!);
+      // Reveal before pinning, preserving the film's own scroll range.
+      const entrance = reduced ? null : gsap.timeline({ scrollTrigger: {
+        trigger: root.current, start: 'top 88%', end: 'top 12%', scrub: .6,
+      } });
+      entrance?.fromTo(root.current!.querySelectorAll('.method-line > span'),
+        { yPercent: 105, opacity: .15 },
+        { yPercent: 0, opacity: 1, duration: .7, stagger: .12, ease: 'power2.out' }, 0)
+        .fromTo(root.current!.querySelector('.method-character'),
+          { y: mobile ? 24 : 45, opacity: 0 },
+          { y: 0, opacity: 1, duration: .8, ease: 'power2.out' }, .15)
+        .fromTo(root.current!.querySelector('.method-aside'),
+          { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: .4 }, .55);
       const timeline = reduced ? null : gsap.timeline({ scrollTrigger: {
         trigger: root.current, start: 'top 10%', end: mobile ? '+=85%' : '+=110%', pin: true, scrub: .45, anticipatePin: 1, refreshPriority: 5,
         onUpdate: self => {
@@ -33,13 +45,13 @@ export default function LogoSequence() {
       timeline?.fromTo(root.current!.querySelector('.logo-canvas-stage'), { scale: .92, rotate: -3 }, { scale: 1.04, rotate: 0, duration: 1, ease: 'none' }, 0)
         .fromTo(root.current!.querySelector('.method-title'), { y: 18 }, { y: -12, duration: 1, ease: 'none' }, 0)
         .fromTo(root.current!.querySelector('.method-progress'), { scaleX: 0 }, { scaleX: 1, duration: 1, ease: 'none' }, 0);
-      return () => { visibility?.disconnect(); timeline?.scrollTrigger?.kill(); timeline?.kill(); renderer.destroy(); };
+      return () => { visibility?.disconnect(); entrance?.scrollTrigger?.kill(); entrance?.kill(); timeline?.scrollTrigger?.kill(); timeline?.kill(); renderer.destroy(); };
     });
     return () => media.revert();
   }, []);
 
   return <div className="method-scene" ref={root}>
-    <div className="method-copy"><h2 className="method-title">THE RIGHT<br/>KIND OF<br/><em>WRONG.</em></h2><p className="method-aside utility">A LITTLE INSTINCT.<br/>A LOT OF CHARACTER.</p></div>
+    <div className="method-copy"><h2 className="method-title"><span className="method-line"><span>THE RIGHT</span></span><span className="method-line"><span>KIND OF</span></span><span className="method-line"><span><em>WRONG.</em></span></span></h2><p className="method-aside utility">A LITTLE INSTINCT.<br/>A LOT OF CHARACTER.</p></div>
     <div className="method-character"><div className="logo-canvas-stage">
       {/* This still is only the no-JS/loading fallback, underneath the canvas. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
