@@ -4,3 +4,6 @@
 .vercel/
 alley-cat/.openai/
 alley-cat/public/can-preview.png
+
+.vercel
+.env*
