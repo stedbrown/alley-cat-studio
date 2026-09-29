@@ -21,16 +21,16 @@ export default function ContactBrief() {
     }
   }
   return <>
-    <Magnet><button className="brief-button" onClick={() => { setStatus(''); dialog.current?.showModal(); }}>LET’S TALK <span aria-hidden="true">✳</span></button></Magnet>
-    <div className="contact-meta utility"><span>DESIGN / DEVELOPMENT / MOTION</span><span>BIG IDEAS WELCOME.</span></div>
+    <Magnet><button className="brief-button" onClick={() => { setStatus(''); dialog.current?.showModal(); }}>START A BRIEF <span aria-hidden="true">↗</span></button></Magnet>
+    <div className="contact-meta utility"><span>DESIGN / DEVELOPMENT / MOTION</span><span>HALF-BAKED IDEAS WELCOME.</span></div>
     <dialog ref={dialog} className="brief-dialog" onClick={event => { if (event.target === event.currentTarget) dialog.current?.close(); }} aria-labelledby="brief-title">
-      <div className="dialog-header utility"><span>NEW PROJECT / NEW POSSIBILITIES</span><button aria-label="Close project brief" onClick={() => dialog.current?.close()}>×</button></div>
+      <div className="dialog-header utility"><span>YOUR NEXT GOOD IDEA STARTS HERE</span><button aria-label="Close project brief" onClick={() => dialog.current?.close()}>×</button></div>
       <h2 id="brief-title">WHAT’S<br/><em>THE IDEA?</em></h2>
-      <p>{contactEmail ? 'A few details. Then let’s get talking.' : 'Put your idea on paper. Download a brief to share when you’re ready.'}</p>
+      <p>{contactEmail ? 'A few details. Then let’s get talking.' : 'No perfect pitch needed. Capture the idea and download your brief to share when you’re ready.'}</p>
       <form onSubmit={saveBrief}>
         <div className="field-row"><label>Your name<input name="name" autoComplete="name" required maxLength={100} placeholder="Name" /></label><label>Your email<input name="email" type="email" autoComplete="email" required maxLength={200} placeholder="you@company.com" /></label></div>
         <label>What are you looking for?<select name="service" defaultValue="The whole thing"><option>The whole thing</option><option>Brand & art direction</option><option>Website & development</option><option>Motion & interaction</option><option>E-commerce & product websites</option><option>Custom software & web apps</option></select></label>
-        <label>Tell us a little about it<textarea name="idea" required rows={3} maxLength={3000} placeholder="The dream, the challenge, the beautifully strange idea…" /></label>
+        <label>Tell us a little about it<textarea name="idea" required rows={3} maxLength={3000} placeholder="What are we making? Who is it for? What should it do?" /></label>
         <button className="submit-brief" type="submit">{contactEmail ? 'CREATE EMAIL DRAFT' : 'DOWNLOAD MY BRIEF'}</button>
         <p className="form-note">{contactEmail ? 'Opens your email app. You decide when to send.' : 'No upload. No mailing list. Just your idea, saved locally.'}</p>
         <p className="brief-status" role="status">{status}</p>

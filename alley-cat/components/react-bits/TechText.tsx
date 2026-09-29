@@ -141,7 +141,8 @@ const TechText = ({
     const scratchCtx = scratch.getContext('2d');
     if (!container || !canvas || !ctx || !scratchCtx) return undefined;
 
-    const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (window.matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches) return;
+    const reducedMotion = false;
     let width = 1;
     let height = 1;
     let dpr = 1;

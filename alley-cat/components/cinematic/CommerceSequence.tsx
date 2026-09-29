@@ -23,7 +23,7 @@ export default function CommerceSequence() {
       }, { rootMargin: '250px' });
       if (!reduced) observer.observe(root.current!);
       const timeline = reduced ? null : gsap.timeline({ scrollTrigger: {
-        trigger: root.current, start: 'top top', end: '+=140%', pin: true, scrub: .4, anticipatePin: 1, refreshPriority: 1,
+        trigger: root.current, start: 'top top', end: context.conditions?.mobile ? '+=85%' : '+=140%', pin: true, scrub: .4, anticipatePin: 1, refreshPriority: 1,
         onUpdate: self => { renderer.seek(self.progress); if (progress.current) progress.current.style.transform = `scaleX(${self.progress})`; },
       } });
       timeline?.fromTo('.commerce-caption', { opacity: .45, y: 10 }, { opacity: 1, y: 0, duration: 1 }, 0);
@@ -34,12 +34,12 @@ export default function CommerceSequence() {
   return <section className="commerce section-pad" id="commerce" ref={root} aria-labelledby="commerce-title">
     <div className="section-heading utility"><span>03 / BUILT TO BE WANTED</span><span>E-COMMERCE & PRODUCT EXPERIENCES</span></div>
     <div className="commerce-layout">
-      <div className="commerce-copy"><h2 id="commerce-title">GOOD <br/>ENOUGH <br/>TO <em>CLICK.</em></h2><p>Products worth a closer look.<br/>Online stores worth staying for.</p><a className="text-link" href="#contact">LET’S BUILD YOUR STORE <span aria-hidden="true">↗</span></a></div>
+      <div className="commerce-copy"><h2 id="commerce-title">GOOD <br/>ENOUGH <br/>TO <em>CLICK.</em></h2><p>From “just looking” to “in the basket.”<br/>We design product pages and online stores that make shopping feel natural.</p><a className="text-link" href="#contact">LET’S BUILD YOUR STORE <span aria-hidden="true">↗</span></a></div>
       <div className="commerce-product"><div className="commerce-stage">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/cinematic/commerce/frames/frame-0001.webp" width="1280" height="720" loading="lazy" alt="An illustrated cat food can with a vivid graffiti label" />
         <canvas ref={canvas} role="img" aria-label="Scroll to open the illustrated product can" />
-      </div><div className="commerce-caption utility"><span>PRODUCT FIRST. EVERY DETAIL CONSIDERED.</span><span>SCROLL TO OPEN ↓</span></div></div>
+      </div><div className="commerce-caption utility"><span>GIVE YOUR PRODUCTS THE MAIN ROLE.</span><span>SCROLL TO OPEN ↓</span></div></div>
     </div>
     <div className="commerce-foot utility"><span>PRODUCT STORYTELLING</span><span>STOREFRONT DESIGN</span><span>SEAMLESS SHOPPING</span></div><span className="commerce-progress" ref={progress} aria-hidden="true" />
   </section>;

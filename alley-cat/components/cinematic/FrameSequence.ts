@@ -8,13 +8,13 @@ export class FrameSequence {
   private disposed = false;
   private target = 0;
   constructor(private directory: string, readonly count: number, private limit: number, private ready: (frame: number) => void) {}
-  start() { this.queue = Array.from({ length: this.count }, (_, i) => i); this.pump(); }
+  start() { this.seek(this.target); }
   get(index: number) { return this.cache.get(index); }
   seek(index: number) {
     this.target = Math.max(0, Math.min(this.count - 1, index));
     const near = [this.target];
     for (let offset = 1; offset <= 7; offset++) near.push(this.target + offset, this.target - offset);
-    this.queue = [...new Set([...near, ...this.queue])].filter(i => i >= 0 && i < this.count && !this.cache.has(i) && !this.pending.has(i) && !this.failed.has(i));
+    this.queue = [...new Set(near)].filter(i => i >= 0 && i < this.count && !this.cache.has(i) && !this.pending.has(i) && !this.failed.has(i));
     this.pump();
   }
   private pump() {

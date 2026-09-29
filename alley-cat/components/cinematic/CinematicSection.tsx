@@ -28,7 +28,7 @@ export default function CinematicSection() {
       }, { rootMargin: '300px' });
       visibility?.observe(section);
       const timeline = reduced ? null : gsap.timeline({ scrollTrigger: {
-        trigger: section, start: 'top top', end: mobile ? '+=170%' : '+=220%', pin: true, scrub: .35, anticipatePin: 1, refreshPriority: 10,
+        trigger: section, start: 'top top', end: mobile ? '+=110%' : '+=220%', pin: true, scrub: .35, anticipatePin: 1, refreshPriority: 10,
         onUpdate: self => {
           renderer.seek(self.progress);
           if (counter.current) counter.current.textContent = String(Math.round(self.progress * 100)).padStart(3, '0');

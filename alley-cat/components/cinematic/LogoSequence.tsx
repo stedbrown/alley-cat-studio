@@ -37,7 +37,7 @@ export default function LogoSequence() {
         .fromTo(root.current!.querySelector('.method-aside'),
           { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: .4 }, .55);
       const timeline = reduced ? null : gsap.timeline({ scrollTrigger: {
-        trigger: root.current, start: 'top 10%', end: mobile ? '+=85%' : '+=110%', pin: true, scrub: .45, anticipatePin: 1, refreshPriority: 5,
+        trigger: root.current, start: 'top 10%', end: mobile ? '+=50%' : '+=110%', pin: true, scrub: .45, anticipatePin: 1, refreshPriority: 5,
         onUpdate: self => {
           renderer.seek(self.progress);
         },
@@ -51,7 +51,7 @@ export default function LogoSequence() {
   }, []);
 
   return <div className="method-scene" ref={root}>
-    <div className="method-copy"><h2 className="method-title"><span className="method-line"><span>THE RIGHT</span></span><span className="method-line"><span>KIND OF</span></span><span className="method-line"><span><em>WRONG.</em></span></span></h2><p className="method-aside utility">A LITTLE INSTINCT.<br/>A LOT OF CHARACTER.</p></div>
+    <div className="method-copy"><h2 className="method-title"><span className="method-line"><span>THE RIGHT</span></span><span className="method-line"><span>KIND OF</span></span><span className="method-line"><span><em>WRONG.</em></span></span></h2><p className="method-aside utility">HUMAN INSTINCT.<br/>A VERY WELL-STOCKED TOOLKIT.</p></div>
     <div className="method-character"><div className="logo-canvas-stage">
       {/* This still is only the no-JS/loading fallback, underneath the canvas. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
