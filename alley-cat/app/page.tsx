@@ -1,3 +1,4 @@
+import VibeSequence from '@/components/cinematic/VibeSequence';
 import Arrow from '@/components/Arrow';
 import StackTicker from '@/components/StackTicker';
 import BrandLogo from '@/components/BrandLogo';
@@ -45,8 +46,9 @@ export default function Home() {
         </div>
         <a className="text-link" href="#contact">PUT YOUR IDEA TO WORK <Arrow /></a>
       </section>
-      <section className="philosophy section-pad"><div className="section-heading utility"><span>05 / OUR NATURAL INSTINCT</span><span>NICE TO LOOK AT. BETTER TO USE.</span></div><ScrollReveal lines={['ALL BITE.', 'NO DEAD', 'CLICKS.']} /><p>A good website earns the next tap.<br/>We make every detail work for it.</p></section>
-      <section className="contact section-pad" id="contact"><div className="section-heading utility"><span>06 / GOT A WILD IDEA?</span><span>LET’S GET OUR PAWS ON IT.</span></div><SplitText label="LET’S MAKE SOME NOISE." lines={[{ text: 'LET’S MAKE' }, { text: 'SOME ', accent: 'NOISE.' }]} /><p>A new store, a better website, a tool that saves your sanity. Let’s give it a life of its own.</p><ContactBrief /></section>
+      <VibeSequence />
+      <section className="philosophy section-pad"><div className="section-heading utility"><span>06 / OUR NATURAL INSTINCT</span><span>NICE TO LOOK AT. BETTER TO USE.</span></div><ScrollReveal lines={['ALL BITE.', 'NO DEAD', 'CLICKS.']} /><p>A good website earns the next tap.<br/>We make every detail work for it.</p></section>
+      <section className="contact section-pad" id="contact"><div className="section-heading utility"><span>07 / GOT A WILD IDEA?</span><span>LET’S GET OUR PAWS ON IT.</span></div><SplitText label="LET’S MAKE SOME NOISE." lines={[{ text: 'LET’S MAKE' }, { text: 'SOME ', accent: 'NOISE.' }]} /><p>A new store, a better website, a tool that saves your sanity. Let’s give it a life of its own.</p><ContactBrief /></section>
     </main>
     <footer className="footer utility"><BrandLogo wordmark /><span>GOOD TASTE. BAD INFLUENCE.</span><span>© 2026 ALLEY CAT STUDIO</span><a href="#">BACK TO TOP</a></footer>
   </>;

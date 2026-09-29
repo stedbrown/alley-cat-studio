@@ -43,7 +43,7 @@ export default function CommerceSequence() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/cinematic/commerce/frames/frame-0001.webp" width="1280" height="720" loading="lazy" alt="An illustrated cat food can with a vivid graffiti label" />
         <canvas ref={canvas} role="img" aria-label="Scroll to open the illustrated product can" />
-        <div className="product-price" aria-label="One million dollars. Nine lives of luxury. Fictional product price."><span className="price-kicker">PURR-MIUM EDITION</span><strong>$1 MILLION</strong><span>NINE LIVES OF LUXURY.</span><small>Fictional price. Real appetite.</small></div>
+        <div className="product-price" aria-label="One million dollars. Nine lives of luxury. Fictional product price."><span className="price-kicker">PURR-MIUM EDITION</span><strong><span>$1</span><span>MILLION</span></strong><small>FAKE PRICE.<br/>REAL APPETITE.</small></div>
       </div><div className="commerce-caption utility"><span>GIVE YOUR PRODUCTS THE MAIN ROLE.</span><span>SCROLL TO OPEN <Arrow down /></span></div></div>
     </div>
     <div className="commerce-foot utility"><span>PRODUCT STORYTELLING</span><span>STOREFRONT DESIGN</span><span>SEAMLESS SHOPPING</span></div><span className="commerce-progress" ref={progress} aria-hidden="true" />
