@@ -8,3 +8,5 @@ License: ../../licenses/react-bits-LICENSE.md (MIT + Commons Clause).
 - `Magnet.tsx`: based on `src/ts-default/Animations/Magnet/Magnet.tsx`; bounded 12px/9px travel, fine-pointer-only interaction, no React state updates on pointer movement, keyboard/modal handling and listener cleanup.
 
 The official `@react-bits` registry is configured in `components.json` for shadcn/MCP-compatible discovery. No global MCP/client settings were changed.
+
+TechText.tsx is adapted from https://github.com/DavidHDev/react-bits/tree/main/src/ts-default/TextAnimations/TechText. The hero disables dragging, labels and specks, retains the upstream visibility-aware canvas loop, and adds a semantic heading plus a static fallback for reduced motion and canvas failure.

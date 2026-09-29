@@ -31,7 +31,7 @@ export default function Motion() {
       const tick = (time: number) => lenis.raf(time * 1000);
       gsap.ticker.add(tick);
       const context = gsap.context(() => {
-        gsap.utils.toArray<HTMLElement>('[data-reveal], .section-heading, .hero h1, .contact > p').forEach(el => {
+        gsap.utils.toArray<HTMLElement>('[data-reveal], .section-heading, .hero-tech-title, .contact > p').forEach(el => {
           gsap.from(el, { y: 24, opacity: 0, duration: .8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 94%', once: true } });
         });
       });

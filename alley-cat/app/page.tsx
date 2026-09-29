@@ -1,3 +1,4 @@
+import HeroTitle from '@/components/HeroTitle';
 import Motion from '@/components/Motion';
 import CinematicSection from '@/components/cinematic/CinematicSection';
 import CommerceSequence from '@/components/cinematic/CommerceSequence';
@@ -19,11 +20,13 @@ export default function Home() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-kicker utility"><span>GOOD PEOPLE. QUESTIONABLE INFLUENCE.</span><span>EST. 2026 / INDEPENDENT BY NATURE</span></div>
         <div className="hero-composition">
-          <div className="hero-type"><h1 id="hero-title">GOOD TASTE.<span>BAD INFLUENCE.</span></h1><div className="hero-caption" data-reveal><span className="asterisk" aria-hidden="true">✳</span><p>We make brands stand out.<br/>And websites act up.</p></div></div>
+          <div className="hero-type"><HeroTitle /><div className="hero-caption" data-reveal><span className="asterisk" aria-hidden="true">✳</span><p>We make brands stand out.<br/>And websites act up.</p></div></div>
         </div>
         <div className="hero-footer utility"><span>BUILT FOR THE ONES WHO DON’T BLEND IN.</span><a href="#commerce">EXPLORE OUR WORLD <span aria-hidden="true">↘</span></a></div>
       </section>
-      <div className="ticker" aria-hidden="true"><div>NO TAME IDEAS <span>✳</span> NO BORING WEBSITES <span>✳</span> ALL BITE. <span>✳</span> NO TAME IDEAS <span>✳</span> NO BORING WEBSITES <span>✳</span></div></div>
+      <div className="ticker tech-ticker" role="region" aria-label="Our toolkit: ChatGPT Astra, Vercel, GitHub, React, Next.js, TypeScript, GSAP and Google Flow">
+        <div className="tech-ticker-track" aria-hidden="true">{[0, 1].map(copy => <div className="tech-ticker-group" key={copy}>{['CHATGPT / ASTRA', 'VERCEL', 'GITHUB', 'REACT', 'NEXT.JS', 'TYPESCRIPT', 'GSAP', 'GOOGLE FLOW'].map(technology => <span className="tech-ticker-item" key={technology}>{technology}<i>✳</i></span>)}</div>)}</div>
+      </div>
       <CinematicSection />
       <section className="studio section-pad" id="about">
         <div className="section-heading utility"><span>02 / THE METHOD IN THE MISCHIEF</span><span>SMALL STUDIO. BIG INSTINCTS.</span></div>

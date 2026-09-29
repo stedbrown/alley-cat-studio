@@ -194,3 +194,23 @@
 }
 @media(max-height:650px) and (min-width:768px){.commerce{padding-block:25px}.commerce h2{font-size:65px}.commerce .section-heading{margin-bottom:15px}}
 @media(prefers-reduced-motion:reduce){.commerce{height:auto;min-height:0}.commerce-progress{transform:scaleX(1)}.text-link span{transition:none}}
+/* React Bits Tech Text: interactive glyph outlines with semantic text fallback. */
+.hero-tech-title{pointer-events:auto;position:relative;width:100%}
+.hero .hero-accessible-title{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;font-size:1px}
+.hero-tech-line{position:relative;height:clamp(115px,19vw,340px)}
+.hero-tech-line-1{height:clamp(90px,15vw,280px);margin-top:-2vw}
+.tech-text{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y;user-select:none}
+.tech-text-canvas{display:block;width:100%;height:100%}
+.hero-tech-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:clamp(75px,15vw,270px);line-height:1;letter-spacing:-.025em;white-space:nowrap}
+.hero-tech-line-1 .hero-tech-fallback{font-size:clamp(45px,11vw,210px);color:var(--orange)}
+.hero-tech-line:has(canvas[data-ready]) .hero-tech-fallback{visibility:hidden}
+.hero-composition{min-height:0;margin:30px 0 40px}
+.hero-caption{margin-top:30px}
+.tech-ticker .tech-ticker-track{display:flex;width:max-content;animation:technology-scroll 45s linear infinite}
+.tech-ticker-group{display:flex;flex-shrink:0;align-items:center}
+.tech-ticker .tech-ticker-item{margin:0;display:flex;align-items:center;white-space:nowrap;font-size:30px;letter-spacing:.015em}
+.tech-ticker-item i{font-style:normal;margin-inline:32px;font-size:23px}
+.tech-ticker:hover .tech-ticker-track{animation-play-state:paused}
+@keyframes technology-scroll{to{transform:translateX(-50%)}}
+@media(max-width:767px){.hero-composition{margin-block:30px}.hero-tech-line{height:25vw}.hero-tech-line-1{height:20vw;margin-top:-1vw}.hero-tech-fallback{font-size:16vw}.hero-tech-line-1 .hero-tech-fallback{font-size:11.5vw}.hero-caption{margin-top:25px}.tech-ticker .tech-ticker-item{font-size:24px}.tech-ticker-item i{margin-inline:22px;font-size:19px}}
+@media(prefers-reduced-motion:reduce){.hero-tech-line .tech-text{display:none}.hero-tech-line:has(canvas[data-ready]) .hero-tech-fallback{visibility:visible}.tech-ticker .tech-ticker-track{animation:none}.tech-ticker{overflow-x:auto}.tech-ticker-group:nth-child(2){display:none}}
