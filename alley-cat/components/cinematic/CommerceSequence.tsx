@@ -30,6 +30,7 @@ export default function CommerceSequence() {
       } });
       timeline?.to(playhead, { progress: 1, duration: 1, ease: 'none' }, 0);
       timeline?.fromTo('.commerce-caption', { opacity: .45, y: 10 }, { opacity: 1, y: 0, duration: 1 }, 0);
+      timeline?.fromTo(root.current!.querySelector('.product-price'), { opacity: 0, scale: .65, rotation: -18, y: 20 }, { opacity: 1, scale: 1, rotation: 8, y: 0, duration: .22, ease: 'back.out(1.4)' }, .32);
       return () => { observer.disconnect(); timeline?.scrollTrigger?.kill(); timeline?.kill(); renderer.destroy(); };
     });
     return () => media.revert();
@@ -42,6 +43,7 @@ export default function CommerceSequence() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/cinematic/commerce/frames/frame-0001.webp" width="1280" height="720" loading="lazy" alt="An illustrated cat food can with a vivid graffiti label" />
         <canvas ref={canvas} role="img" aria-label="Scroll to open the illustrated product can" />
+        <div className="product-price" aria-label="One million dollars. Nine lives of luxury. Fictional product price."><span className="price-kicker">PURR-MIUM EDITION</span><strong>$1 MILLION</strong><span>NINE LIVES OF LUXURY.</span><small>Fictional price. Real appetite.</small></div>
       </div><div className="commerce-caption utility"><span>GIVE YOUR PRODUCTS THE MAIN ROLE.</span><span>SCROLL TO OPEN <Arrow down /></span></div></div>
     </div>
     <div className="commerce-foot utility"><span>PRODUCT STORYTELLING</span><span>STOREFRONT DESIGN</span><span>SEAMLESS SHOPPING</span></div><span className="commerce-progress" ref={progress} aria-hidden="true" />

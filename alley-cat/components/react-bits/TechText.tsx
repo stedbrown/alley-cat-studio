@@ -141,8 +141,9 @@ const TechText = ({
     const scratchCtx = scratch.getContext('2d');
     if (!container || !canvas || !ctx || !scratchCtx) return undefined;
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const reducedMotion = false;
+    const touch = window.matchMedia('(pointer: coarse)').matches;
     let width = 1;
     let height = 1;
     let dpr = 1;
@@ -511,6 +512,10 @@ const TechText = ({
 
     const tick = (now: number) => {
       raf = 0;
+      if (touch && now - last < 1000 / 30) {
+        if (visible && alive) raf = requestAnimationFrame(tick);
+        return;
+      }
       const s = settingsRef.current;
       if (!s) return;
       const dt = Math.min(0.05, Math.max(0.001, (now - last) / 1000));
@@ -638,7 +643,7 @@ const TechText = ({
     const resize = () => {
       width = Math.max(1, container.clientWidth);
       height = Math.max(1, container.clientHeight);
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, touch ? 1.5 : 2);
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
       layoutKey = '';
@@ -651,6 +656,7 @@ const TechText = ({
       pointer.y = e.clientY - rect.top;
     };
     const onMove = (e: PointerEvent) => {
+      if (touch) return;
       locate(e);
       pointer.inside = true;
       wake();
@@ -661,6 +667,7 @@ const TechText = ({
       wake();
     };
     const onDown = (e: PointerEvent) => {
+      if (touch) return;
       locate(e);
       pointer.inside = true;
       const s = settingsRef.current;

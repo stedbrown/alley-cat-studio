@@ -36,8 +36,8 @@ export default function CinematicSection() {
         },
       } });
       timeline?.to(playhead, { progress: 1, duration: 1, ease: 'none' }, 0);
-      timeline?.to(section.querySelector('.scene-intro'), { opacity: 0, y: -35, duration: .25 }, 0)
-        .fromTo(section.querySelector('.scene-outro'), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: .22 }, .78);
+      timeline?.to(section.querySelector('.scene-intro'), { opacity: 0, y: -18, duration: .12 }, .43)
+        .fromTo(section.querySelector('.scene-outro'), { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .12 }, .55);
       return () => { visibility?.disconnect(); timeline?.scrollTrigger?.kill(); timeline?.kill(); renderer.destroy(); };
     });
     return () => media.revert();
