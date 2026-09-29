@@ -37,14 +37,17 @@ export default function Home() {
       </section>
       <CommerceSequence />
       <section className="software section-pad" id="work" aria-labelledby="software-title">
-        <div className="section-heading utility"><span>04 / SOFTWARE WITH CHARACTER</span><span>HARD-WORKING CODE. GOOD-LOOKING TOOLS.</span></div>
-        <div className="software-intro"><div id="software-title"><ScrollReveal lines={['LESS BUSYWORK.', 'MORE', 'CATNAP.']} /></div><p data-reveal>Your team has better things to do than wrestle with software. We build web apps, dashboards and internal tools that fit the job — and feel good to use.</p></div>
-        <div className="software-services">
-          <article data-reveal><span className="utility">01 / WEB APPLICATIONS</span><h3>YOUR IDEAS.<br/>IN ACTION.</h3><p>From customer portals to your next big idea. Web apps that make the complicated feel obvious.</p></article>
-          <article data-reveal><span className="utility">02 / BUSINESS SOFTWARE</span><h3>LESS FRICTION.<br/>MORE FLOW.</h3><p>Connect the tools, tame the admin and give repetitive tasks somewhere else to live.</p></article>
-          <article data-reveal><span className="utility">03 / INTERFACE & MOTION</span><h3>EVERY MOVE.<br/>A PURPOSE.</h3><p>Motion that guides, feedback that helps, and interfaces with a personality. No circus required.</p></article>
+        <div className="section-heading utility"><span>04 / WEBSITES & CUSTOM SOFTWARE</span><span>NINE LIVES. ZERO COPYCATS.</span></div>
+        <div className="software-intro">
+          <div id="software-title"><span className="software-eyebrow utility">BUILT FROM SCRATCH. WITH CLAWS.</span><SplitText label="SHARP SITES. SMART SOFTWARE. CAT ATTITUDE." lines={[{ text: 'SHARP SITES.' }, { text: 'SMART SOFTWARE.' }, { text: '', accent: 'CAT ATTITUDE.' }]} /></div>
+          <div className="software-pitch" data-reveal><span className="software-stamp">LESS HISS.<br/>MORE YES.</span><p>We design and build websites, online stores and custom software. Made for your customers. Shaped around your business. With enough personality to leave a scratch.</p></div>
         </div>
-        <a className="text-link" href="#contact">PUT YOUR IDEA TO WORK <Arrow /></a>
+        <div className="software-services">
+          <article data-reveal><span className="utility">01 / WEBSITES</span><h3>MAKE THEM<br/><em>PAWS.</em></h3><p>Websites that stop the scroll and make the next step obvious. Sharp design, clear content and motion with a reason to move.</p><span className="service-detail utility">BRAND SITES / LANDING PAGES</span></article>
+          <article data-reveal><span className="utility">02 / E-COMMERCE</span><h3>STRAIGHT TO<br/><em>THE BASKET.</em></h3><p>Product pages with appetite. Stores that feel easy to browse, choose and buy from — even with one thumb and a cat on your lap.</p><span className="service-detail utility">ONLINE STORES / PRODUCT EXPERIENCES</span></article>
+          <article data-reveal><span className="utility">03 / CUSTOM SOFTWARE</span><h3>TAME THE WORK.<br/><em>KEEP THE WILD.</em></h3><p>Web apps, dashboards and internal tools that take repetitive jobs off your plate. Your workflow, finally house-trained.</p><span className="service-detail utility">WEB APPS / DASHBOARDS / AUTOMATION</span></article>
+        </div>
+        <a className="text-link" href="#contact">LET’S MAKE SOMETHING THAT PURRS <Arrow /></a>
       </section>
       <VibeSequence />
       <section className="philosophy section-pad"><div className="section-heading utility"><span>06 / OUR NATURAL INSTINCT</span><span>NICE TO LOOK AT. BETTER TO USE.</span></div><ScrollReveal lines={['ALL BITE.', 'NO DEAD', 'CLICKS.']} /><p>A good website earns the next tap.<br/>We make every detail work for it.</p></section>
