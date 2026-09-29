@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm --prefix alley-cat ci",
+  "buildCommand": "npm --prefix alley-cat run build",
+  "outputDirectory": "alley-cat/out"
+}

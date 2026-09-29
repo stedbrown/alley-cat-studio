@@ -1,0 +1,11 @@
+.tools
+*.png
+logo-reference.jpg
+alley-cat/node_modules
+alley-cat/.next
+alley-cat/out
+alley-cat/.openai
+alley-cat/.sites-runtime
+alley-cat/reference.jpg
+alley-cat/public/can-preview.png
+alley-cat/*.tsbuildinfo

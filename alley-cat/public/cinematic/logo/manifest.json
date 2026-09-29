@@ -1,0 +1,12 @@
+{
+  "frames": {
+    "count": 96,
+    "width": 1280,
+    "fps": 24
+  },
+  "mobile": {
+    "count": 48,
+    "width": 768,
+    "fps": 12
+  }
+}

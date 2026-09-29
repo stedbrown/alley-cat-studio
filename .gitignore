@@ -1,0 +1,6 @@
+.tools/
+/*.png
+/logo-reference.jpg
+.vercel/
+alley-cat/.openai/
+alley-cat/public/can-preview.png
